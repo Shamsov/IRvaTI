@@ -327,7 +327,7 @@ class AIService:
             )
 
         try:
-            from langchain.schema import HumanMessage, SystemMessage
+            from langchain_core.messages import HumanMessage, SystemMessage
 
             system_prompt = (
                 "Ты — помощник-преподаватель. Отвечай на вопросы студентов "
@@ -341,7 +341,7 @@ class AIService:
                 "Дай чёткий и полный ответ на основе контекста выше."
             )
 
-            response = self._llm(
+            response = self._llm.invoke(
                 [
                     SystemMessage(content=system_prompt),
                     HumanMessage(content=user_prompt),

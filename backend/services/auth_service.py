@@ -46,14 +46,14 @@ def create_access_token(
     if expires_delta is None:
         expires_delta = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
 
-    expire = datetime.now(tz=timezone.utc) + expires_delta
+    expire = datetime.now(timezone.utc) + expires_delta
 
     payload = {
         "sub": str(user_id),
         "email": email,
         "role": role,
         "exp": expire,
-        "iat": datetime.now(tz=timezone.utc),
+        "iat": datetime.now(timezone.utc),
     }
 
     return jwt.encode(payload, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
