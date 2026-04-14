@@ -9,7 +9,8 @@ import java.util.concurrent.TimeUnit
 // Singleton-клиент Retrofit для работы с бэкендом
 object RetrofitClient {
 
-    // Адрес бэкенда для Android-эмулятора (10.0.2.2 — localhost хост-машины)
+    // Адрес бэкенда: по умолчанию Android-эмулятор (10.0.2.2 — localhost хост-машины).
+    // Для физических устройств или других сред измените значение через BuildConfig или конфиг-файл.
     private const val BASE_URL = "http://10.0.2.2:8000/"
 
     // Логирование HTTP-запросов и ответов
