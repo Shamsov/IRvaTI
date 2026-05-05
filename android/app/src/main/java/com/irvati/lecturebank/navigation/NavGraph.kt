@@ -1,5 +1,6 @@
 package com.irvati.lecturebank.navigation
 
+import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -75,7 +76,7 @@ fun NavGraph(
                 authViewModel = authViewModel,
                 subjectViewModel = subjectViewModel,
                 onSubjectClick = { subjectId, subjectName ->
-                    navController.navigate("subject/$subjectId/${subjectName}")
+                    navController.navigate("subject/$subjectId/${Uri.encode(subjectName)}")
                 },
                 onAiSearchClick = { navController.navigate("ai_search") },
                 onLogout = {
@@ -102,7 +103,7 @@ fun NavGraph(
                 authViewModel = authViewModel,
                 lectureViewModel = lectureViewModel,
                 onLectureClick = { lectureId, lectureTitle ->
-                    navController.navigate("lecture/$lectureId/${lectureTitle}")
+                    navController.navigate("lecture/$lectureId/${Uri.encode(lectureTitle)}")
                 },
                 onBack = { navController.popBackStack() }
             )
